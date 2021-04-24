@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Home {% endblock title %}
+
+{% block content %}
+
+    <!-- Showcase -->
+    <section>
+        <div class="container-fluid">
+          <div class="col-sm-6 mx-auto text-center">
+            <!-- Alerts -->
+            {% include 'inc/_alert_msg.html' %}
+              {% if user.is_authenticated %}
+               <h3>Logged in</h3>
+               <p>Hello, {{ user.username | capfirst }}</p>
+                <div class="d-grid gap-2 pb-2">
+                <form method="post" action=" {% url 'account_logout' %} ">
+                    {% csrf_token %}
+                    <button class="btn btn-secondary">Log out</button>
+                </form>
+                </div>
+                {% else %}
+               <h3>Sign in with Google or Linkedin</h3>
+               <p>Hello Friend, please sign in</p>
+                 <a href="{% url 'account_login' %}">Here</a>
+              {% endif %}
+          </div>
+
+        </div>
+    </section>
+
+{% endblock content %}

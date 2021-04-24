@@ -1,0 +1,18 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-start">
+      <img class="userAvatar-img userAvatar-white m-2" width="110" height="110" src="https://picsum.photos/110/110" alt="logo">
+    </div>
+    <div class="d-flex justify-content-center">
+          <a class="navbar-brand text-uppercase m-2" href="{{ request.scheme }}://{{ request.get_host }}">Social login app with Django 3.2</a>
+    </div>
+    <div class="d-flex justify-content-end">
+    {% if user.is_authenticated %}
+     <a href="{{ request.scheme }}://{{ request.get_host }}/accounts/logout/" class="nav-link text-white-50 text-uppercase text-decoration-underline">Log out</a>
+     {% else %}
+     <a href="{{ request.scheme }}://{{ request.get_host }}/accounts/login/" class="nav-link text-white-50 text-uppercase text-decoration-underline">Sign in</a>
+    {% endif %}
+    </div>
+  </div>
+</nav>
