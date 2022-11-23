@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xpl2lruv9^e1$qg9u6y$ic8l8@a)(b#lh23a2^vuur8%@0=@g8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['sociallogin.onrender.com']
 
@@ -61,8 +61,8 @@ ROOT_URLCONF = 'soclogin.urls'
 TEMPLATES = [
 	{
 		'BACKEND': 'django.template.backends.django.DjangoTemplates',
-		'DIRS': [os.path.join(BASE_DIR, 'templates')],
-		'APP_DIRS': True,
+        	'DIRS': [BASE_DIR / 'templates'],
+        	'APP_DIRS': True,
 		'OPTIONS': {
 			'context_processors': [
 				'django.template.context_processors.debug',
@@ -134,6 +134,7 @@ if DEBUG:
     STATICFILES_DIRS = [
 	BASE_DIR / "static",
     ]
+
 # media folder settings
     MEDIA_URL = '/media/'
     MEDIA_ROOT = BASE_DIR / 'media'
